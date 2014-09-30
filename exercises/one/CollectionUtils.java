@@ -1,0 +1,46 @@
+import java.lang.Object;
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class CollectionUtils
+{
+    public static void main(String [] args)
+    {
+        Collection<String> coll = new ArrayList<String>();
+        coll.add("String1");
+        coll.add("String2");
+        coll.add("String3");
+        coll.add("String4");
+        coll.add("String5");
+
+        int i = 0;
+        boolean b = false;
+        String s = new String();
+
+        System.out.println("There are " + cardinality(b,coll) + " booleans");
+        System.out.println("There are " + cardinality(i,coll) + " integers");
+        System.out.println("There are " + cardinality(s,coll) + " strings");
+
+
+    }
+
+    public static int cardinality(Object obj,Collection coll)
+    {
+        int i = 0;
+
+        for(int j = 0; j < coll.size(); j++)
+        {
+            if (obj.getClass() == coll.toArray()[j].getClass())
+            {
+                i++;
+            }
+        }
+
+        if (obj.getClass() == null)
+        {
+            i = 0;
+        }
+
+        return i;
+    }
+}
